@@ -1,16 +1,14 @@
 # Lab 6 – Scale and Load Balance Your Architecture
 
-## Author
-
-
-* **Name**: AHMED ALIKHAN S
-* **Register Number**: 212225230006
-* **Date of Submission**: 23.11.2026
----
-
 ## Title
 
 Scale and Load Balance Your Architecture
+---
+Author : AHMED ALIKHAN S
+
+Reg no : 212225230006
+
+Date : 23-11-2026
 
 ---
 
@@ -71,39 +69,28 @@ Students test the setup by generating traffic and observing automatic scaling an
 
 ---
 
-## Workflow (Student Explanation)
+## Workflow (To be filled by Student)
 
-1. I reviewed the existing EC2-based application architecture that I had created in previous experiments to understand how the instances were configured and how the application was being accessed.
 
-2. I created a Launch Template by defining the EC2 configuration, including the Amazon Machine Image (AMI), instance type, key pair, security group, and user data script for automatic application setup during instance launch.
+1.Launched a new EC2 instance named Web Server in the N. Virginia region using Amazon Linux 2023 AMI and t2.micro instance type.
 
-3. Using the launch template, I created an Auto Scaling Group. I configured the minimum, maximum, and desired capacity values to control how many EC2 instances should run based on demand. I also selected the appropriate VPC and subnets.
+2.Enabled termination protection and stop protection, configured a security group, and added a user data script to install and start an Apache web server.
 
-4. Next, I created an Application Load Balancer and configured a target group. I set the protocol and port (HTTP/HTTPS) and defined health check settings to monitor the EC2 instances.
+3.Monitored the instance using status checks, CloudWatch metrics, and system logs to ensure it was running properly.
 
-5. I attached the Auto Scaling Group to the target group so that any instances launched by the Auto Scaling Group would automatically register with the Load Balancer.
+4.Modified the security group to allow HTTP (port 80) traffic and accessed the web server using the public IP address.
 
-6. I configured scaling policies based on CPU utilization. I created Amazon CloudWatch alarms to automatically increase the number of instances when CPU usage was high and decrease them when CPU usage was low.
+5.Resized the instance to t2.small, increased the EBS volume size, explored EC2 service quotas, tested stop protection, and finally stopped the instance.
 
-7. Finally, I tested the setup by generating traffic to the Load Balancer DNS name. I observed that the traffic was distributed evenly across instances and that additional instances were launched automatically when the CPU utilization threshold was exceeded.
-
----
 
 ## Output Screenshots 
 
-## Created LoadBalancer
+<img width="1920" height="1200" alt="Screenshot (59)" src="https://github.com/user-attachments/assets/d5c3f3e6-b9ab-45cb-9d8c-ad0c662c38f9" />
+<img width="1920" height="1200" alt="Screenshot (63)" src="https://github.com/user-attachments/assets/fbd33434-7c84-41f8-b226-d051348d243d" />
+<img width="1920" height="1200" alt="Screenshot (65)" src="https://github.com/user-attachments/assets/7fd00d2b-3ca0-44eb-82fc-6e1162f5638a" />
+<img width="1920" height="1200" alt="Screenshot (75)" src="https://github.com/user-attachments/assets/213daa78-7b20-4cf2-b5c2-e5c967ffee8e" />
 
-<img width="1920" height="967" alt="image" src="https://github.com/user-attachments/assets/30bcd1d3-d987-4d74-8107-4e3a64acadc3" />
 
-## Created LabConfig
-
-<img width="1920" height="967" alt="image" src="https://github.com/user-attachments/assets/6da7573d-c81b-4621-91aa-e419be44821b" />
-
-## Dynamic Scaling Policy created
-
-<img width="1920" height="967" alt="image" src="https://github.com/user-attachments/assets/d09eafcc-42ca-43e2-8b6d-de4b226b63f7" />
-
----
 
 
 ## Result
